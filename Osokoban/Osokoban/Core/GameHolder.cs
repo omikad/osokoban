@@ -6,12 +6,20 @@ namespace Osokoban.Core
 	[Export]
 	public class GameHolder
 	{
+		private readonly ExportProvider container;
+
 		[ImportingConstructor]
 		public GameHolder(ExportProvider container)
 		{
-			CurrentGame = container.GetExportedValue<Game>();
+			this.container = container;
+			ReloadRandomLevel();
 		}
 
 		public Game CurrentGame { get; private set; }
+
+		public void ReloadRandomLevel()
+		{
+			CurrentGame = container.GetExportedValue<Game>();
+		}
 	}
 }

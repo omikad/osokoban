@@ -17,7 +17,10 @@ namespace Osokoban.Core.Cells
 
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
-			dc.DrawImage(assetsManager.Wall, cellRect);			
+			dc.DrawImage(assetsManager.Wall, cellRect);
 		}
+
+		public bool CanMoveHere => false;
+		public bool IsPlayer => false;
 	}
 }

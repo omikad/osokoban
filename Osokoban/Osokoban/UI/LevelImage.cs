@@ -28,8 +28,17 @@ namespace Osokoban.UI
 		{
 			using (var dc = board.RenderOpen())
 			{
-				RenderBorders(dc);
-				RenderCells(dc);
+				for (var x = 0; x < game.CellsX; x++)
+					for (var y = 0; y < game.CellsY; y++)
+					{
+						var cellRect = new Rect(
+							x * cellWidth + borderThickness,
+							y * cellHeight + borderThickness,
+							cellWidth - borderThickness,
+							cellHeight - borderThickness);
+
+						game.Cells[x, y].Draw(dc, cellRect);
+					}
 			}
 		}
 
@@ -45,36 +54,6 @@ namespace Osokoban.UI
 			Redraw();
 
 			AddVisualToTree();
-		}
-
-		private void RenderBorders(DrawingContext dc)
-		{
-			for (var i = 0; i <= game.CellsX; i++)
-			{
-				var vertical = new Rect(i * cellWidth, 0, borderThickness, cellHeight * game.CellsY + borderThickness);
-				dc.DrawRectangle(Brushes.Black, null, vertical);
-			}
-
-			for (var i = 0; i <= game.CellsY; i++)
-			{
-				var horizontal = new Rect(0, i * cellHeight, cellWidth * game.CellsX + borderThickness, borderThickness);
-				dc.DrawRectangle(Brushes.Black, null, horizontal);
-			}
-		}
-
-		private void RenderCells(DrawingContext dc)
-		{
-			for (var x = 0; x < game.CellsX; x++)
-				for (var y = 0; y < game.CellsY; y++)
-				{
-					var cellRect = new Rect(
-						x * cellWidth + borderThickness,
-						y * cellHeight + borderThickness,
-						cellWidth - borderThickness,
-						cellHeight - borderThickness);
-
-					game[x, y].Draw(dc, cellRect);
-				}
 		}
 
 		private void AddVisualToTree()

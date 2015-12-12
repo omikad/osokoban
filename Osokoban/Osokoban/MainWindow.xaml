@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="clr-namespace:Osokoban.UI"
         mc:Ignorable="d"
-        Title="O.Sokoban" Height="350" Width="525">
+        Title="O.Sokoban" Height="350" Width="525"
+        KeyUp="OnKeyUp">
     
     <Grid>
         <ui:LevelImage x:Name="LevelImage" />

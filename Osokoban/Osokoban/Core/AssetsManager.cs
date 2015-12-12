@@ -12,13 +12,15 @@ namespace Osokoban.Core
 		{
 			Diamond = Load("Diamond.png");
 			Player = Load("Archer.png");
-			TargetPlace = Load("TargetPlace.png");
+			ChestOpened = Load("ChestOpened.png");
+			ChestClosed = Load("ChestClosed.png");
 			Wall = Load("Wall.png");
 		}
 
 		public ImageSource Diamond { get; }
 		public ImageSource Player { get; }
-		public ImageSource TargetPlace { get; }
+		public ImageSource ChestOpened { get; }
+		public ImageSource ChestClosed { get; }
 		public ImageSource Wall { get; }
 
 		private static ImageSource Load(string path)

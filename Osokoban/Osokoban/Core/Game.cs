@@ -1,25 +1,47 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using System.Linq;
 using Osokoban.Core.Cells;
+using Osokoban.DataTypes;
+using Osokoban.Helpers;
 
 namespace Osokoban.Core
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class Game
 	{
-		private readonly ICell[,] cells;
+		public readonly ICell[,] Cells;
+		public int CellsX => Cells.GetLength(0);
+		public int CellsY => Cells.GetLength(1);
 
-		public readonly int CellsX;
-		public readonly int CellsY;
-
-		public ICell this[int x, int y] => cells[x, y];
+		private PointInt playerPoint;
+		private ICell cellBehindPlayer;
 
 		[ImportingConstructor]
-		public Game(LevelReader levelReader)
+		public Game(LevelReader levelReader, ExportProvider container)
 		{
-			cells = levelReader.GenerateRandomLevel(new Random());
-			CellsX = cells.GetLength(0);
-			CellsY = cells.GetLength(1);
+			Cells = levelReader.GenerateRandomLevel(new Random());
+			playerPoint = Cells.EnumerateIndices().First(p => Cells.Get(p).IsPlayer);
+			cellBehindPlayer = container.GetExportedValue<EmptyCell>();
+		}
+
+		public void MovePlayer(PointInt delta)
+		{
+			var toPoint = playerPoint + delta;
+			if (!Cells.AreIndicesAllowed(toPoint)) return;
+
+			var to = Cells.Get(toPoint);
+			if (!to.CanMoveHere) return;
+
+			var player = Cells.Get(playerPoint);
+
+			Cells.Set(playerPoint, cellBehindPlayer);
+			Cells.Set(toPoint, player);
+
+			cellBehindPlayer = to;
+
+			playerPoint = toPoint;
 		}
 	}
 }

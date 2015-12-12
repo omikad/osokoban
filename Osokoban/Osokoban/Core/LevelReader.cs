@@ -28,7 +28,7 @@ namespace Osokoban.Core
 			var applesCount = random.Next(2, 10);
 
 			FillRandom(random, result, wallsCount, () => container.GetExportedValue<WallCell>());
-			FillRandom(random, result, applesCount, () => container.GetExportedValue<TargetPlaceCell>());
+			FillRandom(random, result, applesCount, () => container.GetExportedValue<ChestCell>());
 			FillRandom(random, result, applesCount, () => container.GetExportedValue<DiamondCell>());
 			FillRandom(random, result, 1, () => container.GetExportedValue<PlayerCell>());
 

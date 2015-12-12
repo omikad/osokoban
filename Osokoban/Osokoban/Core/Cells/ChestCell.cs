@@ -5,19 +5,24 @@ using System.Windows.Media;
 namespace Osokoban.Core.Cells
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class TargetPlaceCell : ICell
+	public class ChestCell : ICell
 	{
 		private readonly AssetsManager assetsManager;
 
 		[ImportingConstructor]
-		public TargetPlaceCell(AssetsManager assetsManager)
+		public ChestCell(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
 		}
 
+		public bool CanMoveHere => true;
+		public bool IsPlayer => false;
+		public bool IsWithDiamond { get; private set; }
+
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
-			dc.DrawImage(assetsManager.TargetPlace, cellRect);			
+			var img = IsWithDiamond ? assetsManager.ChestClosed : assetsManager.ChestOpened;
+			dc.DrawImage(img, cellRect);
 		}
 	}
 }

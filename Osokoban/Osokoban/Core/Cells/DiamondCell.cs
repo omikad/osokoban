@@ -15,6 +15,9 @@ namespace Osokoban.Core.Cells
 			this.assetsManager = assetsManager;
 		}
 
+		public bool CanMoveHere => false;
+		public bool IsPlayer => false;
+
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
 			dc.DrawImage(assetsManager.Diamond, cellRect);			
