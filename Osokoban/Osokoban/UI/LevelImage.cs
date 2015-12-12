@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using Osokoban.Core;
+using Osokoban.Helpers;
 
 namespace Osokoban.UI
 {
@@ -37,7 +38,7 @@ namespace Osokoban.UI
 							cellWidth - borderThickness,
 							cellHeight - borderThickness);
 
-						game.Cells[x, y].Draw(dc, cellRect);
+						game.Items[x, y].ElementWithMax(i => i.ZIndex).Draw(dc, cellRect);
 					}
 			}
 		}

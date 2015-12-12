@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
@@ -11,37 +12,33 @@ namespace Osokoban.Core
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class Game
 	{
-		public readonly ICell[,] Cells;
-		public int CellsX => Cells.GetLength(0);
-		public int CellsY => Cells.GetLength(1);
+		public readonly List<IGameItem>[,] Items;
+		public int CellsX => Items.GetLength(0);
+		public int CellsY => Items.GetLength(1);
 
 		private PointInt playerPoint;
-		private ICell cellBehindPlayer;
 
 		[ImportingConstructor]
 		public Game(LevelReader levelReader, ExportProvider container)
 		{
-			Cells = levelReader.GenerateRandomLevel(new Random());
-			playerPoint = Cells.EnumerateIndices().First(p => Cells.Get(p).IsPlayer);
-			cellBehindPlayer = container.GetExportedValue<EmptyCell>();
+			Items = levelReader.GenerateRandomLevel(new Random());
+			playerPoint = Items.EnumerateIndices().First(p => Items.Get(p).Any(i => i.IsPlayer));
 		}
 
 		public void MovePlayer(PointInt delta)
 		{
-			var toPoint = playerPoint + delta;
-			if (!Cells.AreIndicesAllowed(toPoint)) return;
+			var destPoint = playerPoint + delta;
 
-			var to = Cells.Get(toPoint);
-			if (!to.CanMoveHere) return;
+			var player = Items.Get(playerPoint).First(i => i.IsPlayer);
 
-			var player = Cells.Get(playerPoint);
+			if (player.Move(this, playerPoint, destPoint))
+				playerPoint = destPoint;
+		}
 
-			Cells.Set(playerPoint, cellBehindPlayer);
-			Cells.Set(toPoint, player);
-
-			cellBehindPlayer = to;
-
-			playerPoint = toPoint;
+		public void MoveUnconditionally(IGameItem gameItem, PointInt currentPoint, PointInt destPoint)
+		{
+			Items.Get(currentPoint).Remove(gameItem);
+			Items.Get(destPoint).Add(gameItem);
 		}
 	}
 }

@@ -65,7 +65,7 @@
     <Content Include="Readme.txt" />
     <Compile Include="Core\AssetsManager.cs" />
     <Compile Include="Core\Cells\EmptyCell.cs" />
-    <Compile Include="Core\Cells\ICell.cs" />
+    <Compile Include="Core\Cells\IGameItem.cs" />
     <Compile Include="Core\Cells\DiamondCell.cs" />
     <Compile Include="Core\Cells\PlayerCell.cs" />
     <Compile Include="Core\Cells\ChestCell.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Core\LevelReader.cs" />
     <Compile Include="DataTypes\PointInt.cs" />
     <Compile Include="Helpers\ArrayHelper.cs" />
+    <Compile Include="Helpers\EnumerableHelper.cs" />
     <Compile Include="UI\LevelImage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
