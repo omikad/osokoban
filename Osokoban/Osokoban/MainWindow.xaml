@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="clr-namespace:Osokoban.UI"
         mc:Ignorable="d"
-        Title="O.Sokoban" Height="350" Width="525"
+        SizeToContent="WidthAndHeight"
+        Title="O.Sokoban" Height="500" Width="500"
         KeyUp="OnKeyUp">
     
-    <Grid>
+    <StackPanel>
         <ui:LevelImage x:Name="LevelImage" />
-    </Grid>
+    </StackPanel>
 </Window>

@@ -19,7 +19,7 @@ namespace Osokoban.Core
 		private PointInt playerPoint;
 
 		[ImportingConstructor]
-		public Game(LevelReader levelReader, ExportProvider container)
+		public Game(LevelReader levelReader)
 		{
 			Items = levelReader.GenerateRandomLevel(new Random());
 			playerPoint = Items.EnumerateIndices().First(p => Items.Get(p).Any(i => i.IsPlayer));

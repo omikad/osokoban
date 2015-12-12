@@ -67,6 +67,7 @@
     <Compile Include="Core\Items\EmptyItem.cs" />
     <Compile Include="Core\Items\IGameItem.cs" />
     <Compile Include="Core\Items\DiamondItem.cs" />
+    <Compile Include="Core\Items\ItemsFactory.cs" />
     <Compile Include="Core\Items\PlayerItem.cs" />
     <Compile Include="Core\Items\ChestItem.cs" />
     <Compile Include="Core\Items\WallItem.cs" />

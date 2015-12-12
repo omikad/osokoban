@@ -15,8 +15,7 @@ namespace Osokoban
 		{
 			this.gameHolder = gameHolder;
 			InitializeComponent();
-
-			LevelImage.SetGame(gameHolder.CurrentGame);
+			NewLevel();
 		}
 
 		private void OnKeyUp(object sender, KeyEventArgs e)
@@ -36,12 +35,17 @@ namespace Osokoban
 					gameHolder.CurrentGame.MovePlayer(new PointInt(1, 0));
 					break;
 				case Key.F2:
-					gameHolder.ReloadRandomLevel();
-					LevelImage.SetGame(gameHolder.CurrentGame);
+					NewLevel();
 					break;
 			}
 
 			LevelImage.Redraw();
+		}
+
+		private void NewLevel()
+		{
+			gameHolder.ReloadRandomLevel();
+			LevelImage.SetGame(gameHolder.CurrentGame);
 		}
 	}
 }
