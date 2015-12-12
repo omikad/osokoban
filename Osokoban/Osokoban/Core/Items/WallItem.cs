@@ -3,15 +3,15 @@ using System.Windows;
 using System.Windows.Media;
 using Osokoban.DataTypes;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class WallCell : IGameItem
+	public class WallItem : IGameItem
 	{
 		private readonly AssetsManager assetsManager;
 
 		[ImportingConstructor]
-		public WallCell(AssetsManager assetsManager)
+		public WallItem(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
 		}

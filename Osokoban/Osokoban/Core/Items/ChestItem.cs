@@ -4,16 +4,16 @@ using System.Windows;
 using System.Windows.Media;
 using Osokoban.DataTypes;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class ChestCell : IGameItem
+	public class ChestItem : IGameItem
 	{
 		private readonly AssetsManager assetsManager;
 		private bool hasDiamond;
 
 		[ImportingConstructor]
-		public ChestCell(AssetsManager assetsManager)
+		public ChestItem(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
 		}

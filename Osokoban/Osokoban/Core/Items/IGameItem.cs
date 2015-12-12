@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Osokoban.DataTypes;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	public interface IGameItem
 	{

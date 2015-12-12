@@ -4,15 +4,15 @@ using System.Windows.Media;
 using Osokoban.DataTypes;
 using Osokoban.Helpers;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class PlayerCell : IGameItem
+	public class PlayerItem : IGameItem
 	{
 		private readonly AssetsManager assetsManager;
 
 		[ImportingConstructor]
-		public PlayerCell(AssetsManager assetsManager)
+		public PlayerItem(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
 		}

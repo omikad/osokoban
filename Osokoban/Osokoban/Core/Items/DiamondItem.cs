@@ -5,15 +5,15 @@ using System.Windows.Media;
 using Osokoban.DataTypes;
 using Osokoban.Helpers;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class DiamondCell : IGameItem
+	public class DiamondItem : IGameItem
 	{
 		private readonly AssetsManager assetsManager;
 
 		[ImportingConstructor]
-		public DiamondCell(AssetsManager assetsManager)
+		public DiamondItem(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
 		}
@@ -36,14 +36,14 @@ namespace Osokoban.Core.Cells
 			if (destList.Count != 1)
 				return false;
 
-			var asEmpty = destList[0] as EmptyCell;
+			var asEmpty = destList[0] as EmptyItem;
 			if (asEmpty != null)
 			{
 				MoveSelf(game, currentPoint, destPoint);
 				return true;
 			}
 
-			var asChest = destList[0] as ChestCell;
+			var asChest = destList[0] as ChestItem;
 			if (asChest != null)
 			{
 				asChest.SetDiamond(true);
@@ -60,7 +60,7 @@ namespace Osokoban.Core.Cells
 
 			var fromList = game.Items.Get(currentPoint);
 
-			var chest = fromList.OfType<ChestCell>().FirstOrDefault();
+			var chest = fromList.OfType<ChestItem>().FirstOrDefault();
 
 			chest?.SetDiamond(false);
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
-using Osokoban.Core.Cells;
+using Osokoban.Core.Items;
 using Osokoban.DataTypes;
 using Osokoban.Helpers;
 

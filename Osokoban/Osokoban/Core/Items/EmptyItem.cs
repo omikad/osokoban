@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Media;
 using Osokoban.DataTypes;
 
-namespace Osokoban.Core.Cells
+namespace Osokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class EmptyCell : IGameItem
+	public class EmptyItem : IGameItem
 	{
 		public bool CanMoveHere => true;
 		public bool IsPlayer => false;

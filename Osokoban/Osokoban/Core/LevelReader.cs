@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using Osokoban.Core.Cells;
+using Osokoban.Core.Items;
 using Osokoban.Helpers;
 
 namespace Osokoban.Core
@@ -28,20 +28,20 @@ namespace Osokoban.Core
 			var wallsCount = random.Next(10, 50);
 			var applesCount = random.Next(2, 10);
 
-			FillRandom(random, result, wallsCount, () => container.GetExportedValue<WallCell>());
-			FillRandom(random, result, applesCount, () => container.GetExportedValue<ChestCell>());
-			FillRandom(random, result, applesCount, () => container.GetExportedValue<DiamondCell>());
-			FillRandom(random, result, 1, () => container.GetExportedValue<PlayerCell>());
+			FillRandom(random, result, wallsCount, () => container.GetExportedValue<WallItem>());
+			FillRandom(random, result, applesCount, () => container.GetExportedValue<ChestItem>());
+			FillRandom(random, result, applesCount, () => container.GetExportedValue<DiamondItem>());
+			FillRandom(random, result, 1, () => container.GetExportedValue<PlayerItem>());
 
 			foreach (var point in result.EnumerateIndices())
 				if (result.Get(point) == null)
-					result.Set(point, new List<IGameItem> {container.GetExportedValue<EmptyCell>()});
+					result.Set(point, new List<IGameItem> {container.GetExportedValue<EmptyItem>()});
 
 			foreach (var point in result.EnumerateIndices())
 			{
 				var item = result.Get(point)[0];
-				if (item.IsPlayer || item is DiamondCell)
-					result.Get(point).Insert(0, container.GetExportedValue<EmptyCell>());
+				if (item.IsPlayer || item is DiamondItem)
+					result.Get(point).Insert(0, container.GetExportedValue<EmptyItem>());
 			}
 
 			return result;
