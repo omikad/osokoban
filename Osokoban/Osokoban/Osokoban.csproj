@@ -56,9 +56,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Resource Include="Assets\Wall.png" />
+    <Resource Include="Assets\TargetPlace.png" />
+    <Resource Include="Assets\Apple.png" />
+    <Resource Include="Assets\Archer.png" />
+    <Resource Include="Assets\Diamond.png" />
+    <Content Include="Readme.txt" />
+    <Compile Include="Core\AssetsManager.cs" />
     <Compile Include="Core\Cells\EmptyCell.cs" />
     <Compile Include="Core\Cells\ICell.cs" />
+    <Compile Include="Core\Cells\DiamondCell.cs" />
+    <Compile Include="Core\Cells\PlayerCell.cs" />
+    <Compile Include="Core\Cells\TargetPlaceCell.cs" />
+    <Compile Include="Core\Cells\WallCell.cs" />
     <Compile Include="Core\Game.cs" />
+    <Compile Include="Core\GameHolder.cs" />
+    <Compile Include="Core\LevelReader.cs" />
+    <Compile Include="DataTypes\PointInt.cs" />
+    <Compile Include="Helpers\ArrayHelper.cs" />
     <Compile Include="UI\LevelImage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

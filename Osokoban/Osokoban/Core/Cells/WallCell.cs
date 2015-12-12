@@ -5,11 +5,19 @@ using System.Windows.Media;
 namespace Osokoban.Core.Cells
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class EmptyCell : ICell
+	public class WallCell : ICell
 	{
+		private readonly AssetsManager assetsManager;
+
+		[ImportingConstructor]
+		public WallCell(AssetsManager assetsManager)
+		{
+			this.assetsManager = assetsManager;
+		}
+
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
-			dc.DrawRectangle(Brushes.White, null, cellRect);
+			dc.DrawImage(assetsManager.Wall, cellRect);			
 		}
 	}
 }

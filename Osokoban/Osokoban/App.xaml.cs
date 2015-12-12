@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 using System.Windows.Threading;
@@ -12,6 +13,8 @@ namespace Osokoban
 			try
 			{
 				var container = new CompositionContainer(new AssemblyCatalog(typeof(App).Assembly));
+
+				container.ComposeExportedValue<ExportProvider>(container);
 
 				var mainWindow = container.GetExportedValue<MainWindow>();
 

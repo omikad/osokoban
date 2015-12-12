@@ -6,11 +6,12 @@ namespace Osokoban
 	[Export]
 	public partial class MainWindow
 	{
-		public MainWindow()
+		[ImportingConstructor]
+		public MainWindow(GameHolder gameHolder)
 		{
 			InitializeComponent();
 
-			LevelImage.SetGame(new Game());
+			LevelImage.SetGame(gameHolder.CurrentGame);
 		}
 	}
 }

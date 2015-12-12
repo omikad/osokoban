@@ -1,25 +1,25 @@
-﻿using Osokoban.Core.Cells;
+﻿using System;
+using System.ComponentModel.Composition;
+using Osokoban.Core.Cells;
 
 namespace Osokoban.Core
 {
+	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class Game
 	{
 		private readonly ICell[,] cells;
 
-		public int CellsX;
-		public int CellsY;
+		public readonly int CellsX;
+		public readonly int CellsY;
 
 		public ICell this[int x, int y] => cells[x, y];
 
-		public Game()
+		[ImportingConstructor]
+		public Game(LevelReader levelReader)
 		{
-			CellsX = 20;
-			CellsY = 14;
-			cells = new ICell[CellsX, CellsY];
-
-			for (var i = 0; i < CellsX; i++)
-				for (var j = 0; j < CellsY; j++)
-					cells[i, j] = new EmptyCell();
+			cells = levelReader.GenerateRandomLevel(new Random());
+			CellsX = cells.GetLength(0);
+			CellsY = cells.GetLength(1);
 		}
 	}
 }

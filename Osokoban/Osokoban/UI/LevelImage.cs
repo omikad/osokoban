@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using Osokoban.Core;
 
@@ -7,9 +6,9 @@ namespace Osokoban.UI
 {
 	public class LevelImage : FrameworkElement
 	{
-		private const int cellWidth = 20;
-		private const int cellHeight = 20;
-		private const int borderThickness = 1;
+		private const int cellWidth = 16;
+		private const int cellHeight = 16;
+		private const int borderThickness = 0;
 
 		private DrawingVisual board = new DrawingVisual();
 		private Game game;
@@ -36,8 +35,7 @@ namespace Osokoban.UI
 
 		private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
 		{
-			if (game == null)
-				throw new InvalidOperationException("Game is null");
+			if (game == null) return;
 
 			Width = cellWidth * game.CellsX;
 			Height = cellHeight * game.CellsY;
