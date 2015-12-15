@@ -8,7 +8,7 @@ namespace Osokoban
 {
 	public partial class App
 	{
-		private void App_OnStartup(object sender, StartupEventArgs e)
+		public static CompositionContainer StartExternal()
 		{
 			try
 			{
@@ -19,11 +19,19 @@ namespace Osokoban
 				var mainWindow = container.GetExportedValue<MainWindow>();
 
 				mainWindow.Show();
+
+				return container;
 			}
 			catch (Exception exception)
 			{
 				OnError(exception);
+				return null;
 			}
+		}
+
+		private void App_OnStartup(object sender, StartupEventArgs e)
+		{
+			StartExternal();
 		}
 
 		private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
