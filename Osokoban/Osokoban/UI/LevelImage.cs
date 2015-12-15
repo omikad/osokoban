@@ -7,8 +7,8 @@ namespace Osokoban.UI
 {
 	public class LevelImage : FrameworkElement
 	{
-		private const int cellWidth = 16;
-		private const int cellHeight = 16;
+		public const int CellWidth = 16;
+		public const int CellHeight = 16;
 		private const int borderThickness = 0;
 
 		private DrawingVisual board = new DrawingVisual();
@@ -33,10 +33,10 @@ namespace Osokoban.UI
 					for (var y = 0; y < game.CellsY; y++)
 					{
 						var cellRect = new Rect(
-							x * cellWidth + borderThickness,
-							y * cellHeight + borderThickness,
-							cellWidth - borderThickness,
-							cellHeight - borderThickness);
+							x * CellWidth + borderThickness,
+							y * CellHeight + borderThickness,
+							CellWidth - borderThickness,
+							CellHeight - borderThickness);
 
 						game.Items[x, y].ElementWithMax(i => i.ZIndex).Draw(dc, cellRect);
 					}
@@ -47,8 +47,8 @@ namespace Osokoban.UI
 		{
 			if (game == null) return;
 
-			Width = cellWidth * game.CellsX;
-			Height = cellHeight * game.CellsY;
+			Width = CellWidth * game.CellsX;
+			Height = CellHeight * game.CellsY;
 
 			board = new DrawingVisual();
 

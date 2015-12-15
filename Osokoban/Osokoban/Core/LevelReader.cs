@@ -19,12 +19,12 @@ namespace Osokoban.Core
 
 		public List<IGameItem>[,] GenerateRandomLevel(Random random)
 		{
-			const int cellsX = 20;
-			const int cellsY = 14;
+			const int cellsX = 10;
+			const int cellsY = 8;
 
 			var result = new List<IGameItem>[cellsX, cellsY];
 
-			var wallsCount = random.Next(10, 50);
+			var wallsCount = random.Next(10, 40);
 			var applesCount = random.Next(2, 10);
 
 			FillRandom(random, result, wallsCount, () => itemsFactory.CreateItem<WallItem>());
