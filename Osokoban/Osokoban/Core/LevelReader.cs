@@ -24,7 +24,7 @@ namespace Osokoban.Core
 
 			var result = new List<IGameItem>[cellsX, cellsY];
 
-			var wallsCount = random.Next(10, 40);
+			var wallsCount = random.Next(10, 30);
 			var applesCount = random.Next(2, 10);
 
 			FillRandom(random, result, wallsCount, () => itemsFactory.CreateItem<WallItem>());
