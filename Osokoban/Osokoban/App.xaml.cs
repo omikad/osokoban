@@ -8,29 +8,21 @@ namespace Osokoban
 {
 	public partial class App
 	{
-		public static CompositionContainer StartExternal(bool showWindow)
+		private void App_OnStartup(object sender, StartupEventArgs e)
 		{
 			try
 			{
 				var container = new CompositionContainer(new AssemblyCatalog(typeof(App).Assembly));
 
 				container.ComposeExportedValue<ExportProvider>(container);
+				container.ComposeExportedValue<Func<Random>>(() => new Random());
 
-				if (showWindow)
-					container.GetExportedValue<MainWindow>().Show();
-
-				return container;
+				container.GetExportedValue<MainWindow>().Show();
 			}
 			catch (Exception exception)
 			{
 				OnError(exception);
-				return null;
 			}
-		}
-
-		private void App_OnStartup(object sender, StartupEventArgs e)
-		{
-			StartExternal(true);
 		}
 
 		private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
