@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osokoban", "Osokoban\Osokoban.csproj", "{B77B0C60-1947-46E3-9734-AB550F72609F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OArcanoid", "OArcanoid\OArcanoid.csproj", "{5BE19260-F979-45E4-B91D-AAF880E11E4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1FF600CE-934B-49F8-B277-2E7ED06FFE36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B77B0C60-1947-46E3-9734-AB550F72609F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B77B0C60-1947-46E3-9734-AB550F72609F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B77B0C60-1947-46E3-9734-AB550F72609F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE19260-F979-45E4-B91D-AAF880E11E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE19260-F979-45E4-B91D-AAF880E11E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE19260-F979-45E4-B91D-AAF880E11E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE19260-F979-45E4-B91D-AAF880E11E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF600CE-934B-49F8-B277-2E7ED06FFE36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF600CE-934B-49F8-B277-2E7ED06FFE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF600CE-934B-49F8-B277-2E7ED06FFE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF600CE-934B-49F8-B277-2E7ED06FFE36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

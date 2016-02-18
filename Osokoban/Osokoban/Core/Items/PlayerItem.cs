@@ -1,8 +1,8 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Media;
-using Osokoban.DataTypes;
-using Osokoban.Helpers;
+using Common.DataTypes;
+using Common.Helpers;
 
 namespace Osokoban.Core.Items
 {

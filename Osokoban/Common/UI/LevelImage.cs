@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using Osokoban.Core;
-using Osokoban.Helpers;
+using Common.GameCore;
+using Common.Helpers;
 
-namespace Osokoban.UI
+namespace Common.UI
 {
 	public class LevelImage : FrameworkElement
 	{
@@ -12,7 +12,7 @@ namespace Osokoban.UI
 		private const int borderThickness = 0;
 
 		private DrawingVisual board = new DrawingVisual();
-		private Game game;
+		private IBoard game;
 
 		public LevelImage()
 		{
@@ -20,7 +20,7 @@ namespace Osokoban.UI
 			Unloaded += RemoveVisualFromTree;
 		}
 
-		public void SetGame(Game gameValue)
+		public void SetGame(IBoard gameValue)
 		{
 			game = gameValue;
 		}
@@ -38,7 +38,7 @@ namespace Osokoban.UI
 							cellWidth - borderThickness,
 							cellHeight - borderThickness);
 
-						game.Items[x, y].ElementWithMax(i => i.ZIndex).Draw(dc, cellRect);
+						game.DrawableContent(x, y).ElementWithMax(i => i.ZIndex).Draw(dc, cellRect);
 					}
 			}
 		}

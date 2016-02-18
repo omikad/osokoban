@@ -6,10 +6,10 @@ namespace Osokoban.Core
 	[Export]
 	public class GameHolder
 	{
-		private readonly ExportProvider container;
+		private readonly CompositionContainer container;
 
 		[ImportingConstructor]
-		public GameHolder(ExportProvider container)
+		public GameHolder(CompositionContainer container)
 		{
 			this.container = container;
 			ReloadRandomLevel();

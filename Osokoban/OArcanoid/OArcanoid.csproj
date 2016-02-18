@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B77B0C60-1947-46E3-9734-AB550F72609F}</ProjectGuid>
+    <ProjectGuid>{5BE19260-F979-45E4-B91D-AAF880E11E4D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Osokoban</RootNamespace>
-    <AssemblyName>Osokoban</AssemblyName>
+    <RootNamespace>OArcanoid</RootNamespace>
+    <AssemblyName>OArcanoid</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -56,22 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Resource Include="Assets\Wall.png" />
-    <Resource Include="Assets\ChestClosed.png" />
-    <Resource Include="Assets\Archer.png" />
-    <Resource Include="Assets\Diamond.png" />
-    <Resource Include="Assets\ChestOpened.png" />
-    <Content Include="Readme.txt" />
-    <Compile Include="Core\AssetsManager.cs" />
-    <Compile Include="Core\Items\EmptyItem.cs" />
-    <Compile Include="Core\Items\IGameItem.cs" />
-    <Compile Include="Core\Items\DiamondItem.cs" />
-    <Compile Include="Core\Items\PlayerItem.cs" />
-    <Compile Include="Core\Items\ChestItem.cs" />
-    <Compile Include="Core\Items\WallItem.cs" />
-    <Compile Include="Core\Game.cs" />
-    <Compile Include="Core\GameHolder.cs" />
-    <Compile Include="Core\LevelReader.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +64,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\AssetsManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -113,12 +98,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Apple.png" />
+    <Resource Include="Assets\Ball.png" />
+    <Resource Include="Assets\Diamond.png" />
+    <Resource Include="Assets\Marker.png" />
+    <Resource Include="Assets\PadCenter.png" />
+    <Resource Include="Assets\PadLeft.png" />
+    <Resource Include="Assets\PadRight.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{1FF600CE-934B-49F8-B277-2E7ED06FFE36}</Project>
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using Common.Helpers;
 using Osokoban.Core.Items;
-using Osokoban.Helpers;
 
 namespace Osokoban.Core
 {
 	[Export]
 	public class LevelReader
 	{
-		private readonly ItemsFactory itemsFactory;
+		private readonly CompositionContainer container;
 
 		[ImportingConstructor]
-		public LevelReader(ItemsFactory itemsFactory)
+		public LevelReader(CompositionContainer container)
 		{
-			this.itemsFactory = itemsFactory;
+			this.container = container;
 		}
 
 		public List<IGameItem>[,] GenerateRandomLevel(Random random)
@@ -27,20 +28,20 @@ namespace Osokoban.Core
 			var wallsCount = random.Next(10, 50);
 			var applesCount = random.Next(2, 10);
 
-			FillRandom(random, result, wallsCount, () => itemsFactory.CreateItem<WallItem>());
-			FillRandom(random, result, applesCount, () => itemsFactory.CreateItem<ChestItem>());
-			FillRandom(random, result, applesCount, () => itemsFactory.CreateItem<DiamondItem>());
-			FillRandom(random, result, 1, () => itemsFactory.CreateItem<PlayerItem>());
+			FillRandom(random, result, wallsCount, () => container.GetExportedValue<WallItem>());
+			FillRandom(random, result, applesCount, () => container.GetExportedValue<ChestItem>());
+			FillRandom(random, result, applesCount, () => container.GetExportedValue<DiamondItem>());
+			FillRandom(random, result, 1, () => container.GetExportedValue<PlayerItem>());
 
 			foreach (var point in result.EnumerateIndices())
 				if (result.Get(point) == null)
-					result.Set(point, new List<IGameItem> {itemsFactory.CreateItem<EmptyItem>()});
+					result.Set(point, new List<IGameItem> { container.GetExportedValue<EmptyItem>()});
 
 			foreach (var point in result.EnumerateIndices())
 			{
 				var item = result.Get(point)[0];
 				if (item.IsPlayer || item is DiamondItem)
-					result.Get(point).Insert(0, itemsFactory.CreateItem<EmptyItem>());
+					result.Get(point).Insert(0, container.GetExportedValue<EmptyItem>());
 			}
 
 			return result;

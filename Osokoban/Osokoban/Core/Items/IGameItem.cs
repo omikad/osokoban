@@ -1,17 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Media;
-using Osokoban.DataTypes;
+﻿using Common.DataTypes;
+using Common.UI;
 
 namespace Osokoban.Core.Items
 {
-	public interface IGameItem
+	public interface IGameItem : IDrawable
 	{
 		bool CanMoveHere { get; }
 		bool IsPlayer { get; }
-
-		int ZIndex { get; }
-
-		void Draw(DrawingContext dc, Rect cellRect);
 
 		bool Move(Game game, PointInt currentPoint, PointInt destPoint);
 	}

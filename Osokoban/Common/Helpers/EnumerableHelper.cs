@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Osokoban.Helpers
+namespace Common.Helpers
 {
 	public static class EnumerableHelper
 	{

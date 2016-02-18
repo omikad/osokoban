@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Osokoban.DataTypes
+namespace Common.DataTypes
 {
 	public struct PointInt : IEquatable<PointInt>
 	{

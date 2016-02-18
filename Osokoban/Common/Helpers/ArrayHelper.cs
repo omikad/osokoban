@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Osokoban.DataTypes;
+using Common.DataTypes;
 
-namespace Osokoban.Helpers
+namespace Common.Helpers
 {
 	public static class ArrayHelper
 	{

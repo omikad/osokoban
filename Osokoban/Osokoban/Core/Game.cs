@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using Common.DataTypes;
+using Common.GameCore;
+using Common.Helpers;
+using Common.UI;
 using Osokoban.Core.Items;
-using Osokoban.DataTypes;
-using Osokoban.Helpers;
 
 namespace Osokoban.Core
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
-	public class Game
+	public class Game : IBoard
 	{
 		public readonly List<IGameItem>[,] Items;
+
 		public int CellsX => Items.GetLength(0);
 		public int CellsY => Items.GetLength(1);
 
@@ -22,6 +25,11 @@ namespace Osokoban.Core
 		{
 			Items = levelReader.GenerateRandomLevel(new Random());
 			playerPoint = Items.EnumerateIndices().First(p => Items.Get(p).Any(i => i.IsPlayer));
+		}
+
+		public IEnumerable<IDrawable> DrawableContent(int x, int y)
+		{
+			return Items[x, y];
 		}
 
 		public void MovePlayer(PointInt delta)

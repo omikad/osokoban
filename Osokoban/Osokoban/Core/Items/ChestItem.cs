@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Media;
-using Osokoban.DataTypes;
+using Common.DataTypes;
 
 namespace Osokoban.Core.Items
 {

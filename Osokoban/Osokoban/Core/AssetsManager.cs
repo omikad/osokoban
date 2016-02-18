@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Common.Helpers;
 
 namespace Osokoban.Core
 {
@@ -25,11 +25,7 @@ namespace Osokoban.Core
 
 		private static ImageSource Load(string path)
 		{
-			var image = new BitmapImage();
-			image.BeginInit();
-			image.UriSource = new Uri("pack://application:,,,/Osokoban;component/Assets/" + path);
-			image.EndInit();
-			return image;
+			return new BitmapImage().FromAssemblySource("Osokoban", "Assets/" + path);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Input;
+using Common.DataTypes;
 using Osokoban.Core;
-using Osokoban.DataTypes;
 
 namespace Osokoban
 {
