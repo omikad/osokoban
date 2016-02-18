@@ -10,7 +10,6 @@ namespace Osokoban.Core.Items
 	public class ChestItem : IGameItem
 	{
 		private readonly AssetsManager assetsManager;
-		private bool hasDiamond;
 
 		[ImportingConstructor]
 		public ChestItem(AssetsManager assetsManager)
@@ -21,21 +20,22 @@ namespace Osokoban.Core.Items
 		public bool CanMoveHere => true;
 		public bool IsPlayer => false;
 		public int ZIndex => 10;
+		public bool HasDiamond { get; private set; }
 
 		public void SetDiamond(bool hasDiamondNow)
 		{
-			if (hasDiamond && hasDiamondNow)
+			if (HasDiamond && hasDiamondNow)
 				throw new InvalidOperationException("Can't have more than one diamond");
 
-			if (!hasDiamond && !hasDiamondNow)
+			if (!HasDiamond && !hasDiamondNow)
 				throw new InvalidOperationException("Can't remove diamond from empty chest");
 
-			hasDiamond = hasDiamondNow;
+			HasDiamond = hasDiamondNow;
 		}
 
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
-			var img = hasDiamond ? assetsManager.ChestClosed : assetsManager.ChestOpened;
+			var img = HasDiamond ? assetsManager.ChestClosed : assetsManager.ChestOpened;
 			dc.DrawImage(img, cellRect);
 		}
 

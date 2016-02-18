@@ -15,6 +15,7 @@ namespace OArcanoid
 				var container = new CompositionContainer(new AssemblyCatalog(typeof(App).Assembly));
 
 				container.ComposeExportedValue(container);
+				container.ComposeExportedValue<Func<Random>>(() => new Random());
 
 				container.GetExportedValue<MainWindow>().Show();
 			}
