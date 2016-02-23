@@ -3,7 +3,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Common.Helpers;
 
-namespace Osokoban.Core
+namespace OSokoban.Core
 {
 	[Export]
 	public class AssetsManager

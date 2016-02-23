@@ -27,14 +27,13 @@ namespace OArcanoid.Core
 			var result = new List<IGameItem>[cellsX, cellsY];
 
 			foreach (var point in result.EnumerateIndices())
-				if (result.Get(point) == null)
-					result.Set(point, new List<IGameItem> { container.GetExportedValue<EmptyItem>() });
+				result.Set(point, new List<IGameItem> { container.GetExportedValue<EmptyItem>() });
 
 			FillBricks(random, result, 22, 1, 4);
 
 			FillPad(result, cellsX / 2 - 1, cellsY - 1);
 
-			result[cellsX / 2, cellsY - 2] = new List<IGameItem> {container.GetExportedValue<BallItem>()};
+			result[cellsX / 2, cellsY - 2].Add(container.GetExportedValue<BallItem>());
 
 			return result;
 		}

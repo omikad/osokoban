@@ -49,6 +49,7 @@
     <Compile Include="Helpers\ArrayHelper.cs" />
     <Compile Include="Helpers\BitmapImageHelper.cs" />
     <Compile Include="Helpers\EnumerableHelper.cs" />
+    <Compile Include="Helpers\RandomHelper.cs" />
     <Compile Include="UI\IDrawable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\LevelImage.cs" />

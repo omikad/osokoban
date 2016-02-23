@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Osokoban.Properties {
+namespace OSokoban.Properties {
     using System;
     
     

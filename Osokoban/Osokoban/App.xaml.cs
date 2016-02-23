@@ -4,7 +4,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace Osokoban
+namespace OSokoban
 {
 	public partial class App
 	{

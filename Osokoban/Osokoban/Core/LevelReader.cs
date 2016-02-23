@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using Common.Helpers;
-using Osokoban.Core.Items;
+using OSokoban.Core.Items;
 
-namespace Osokoban.Core
+namespace OSokoban.Core
 {
 	[Export]
 	public class LevelReader

@@ -5,7 +5,7 @@ using System.Windows.Media;
 using Common.DataTypes;
 using Common.Helpers;
 
-namespace Osokoban.Core.Items
+namespace OSokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class DiamondItem : IGameItem

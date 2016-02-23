@@ -27,6 +27,9 @@ namespace OArcanoid
 				case Key.Right:
 					gameHolder.CurrentGame.MoveRight();
 					break;
+				case Key.Down:
+					gameHolder.CurrentGame.SkipTurn();
+					break;
 				case Key.F2:
 					NewLevel();
 					break;

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osokoban", "Osokoban\Osokoban.csproj", "{B77B0C60-1947-46E3-9734-AB550F72609F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSokoban", "Osokoban\OSokoban.csproj", "{B77B0C60-1947-46E3-9734-AB550F72609F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OArcanoid", "OArcanoid\OArcanoid.csproj", "{5BE19260-F979-45E4-B91D-AAF880E11E4D}"
 EndProject

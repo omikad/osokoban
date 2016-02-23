@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Input;
 using Common.DataTypes;
-using Osokoban.Core;
+using OSokoban.Core;
 
-namespace Osokoban
+namespace OSokoban
 {
 	[Export]
 	public partial class MainWindow

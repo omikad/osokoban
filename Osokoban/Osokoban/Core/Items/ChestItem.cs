@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using Common.DataTypes;
 
-namespace Osokoban.Core.Items
+namespace OSokoban.Core.Items
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class ChestItem : IGameItem

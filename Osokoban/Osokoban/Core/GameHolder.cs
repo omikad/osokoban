@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 
-namespace Osokoban.Core
+namespace OSokoban.Core
 {
 	[Export]
 	public class GameHolder

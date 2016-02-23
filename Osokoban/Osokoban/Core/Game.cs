@@ -6,9 +6,9 @@ using Common.DataTypes;
 using Common.GameCore;
 using Common.Helpers;
 using Common.UI;
-using Osokoban.Core.Items;
+using OSokoban.Core.Items;
 
-namespace Osokoban.Core
+namespace OSokoban.Core
 {
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	public class Game : IBoard

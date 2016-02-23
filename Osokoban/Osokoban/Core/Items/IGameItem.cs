@@ -1,7 +1,7 @@
 ﻿using Common.DataTypes;
 using Common.UI;
 
-namespace Osokoban.Core.Items
+namespace OSokoban.Core.Items
 {
 	public interface IGameItem : IDrawable
 	{

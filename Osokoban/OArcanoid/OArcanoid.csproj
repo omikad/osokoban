@@ -71,6 +71,7 @@
     <Compile Include="Core\Items\BrickItem.cs" />
     <Compile Include="Core\Items\EmptyItem.cs" />
     <Compile Include="Core\Items\IGameItem.cs" />
+    <Compile Include="Core\Items\Pad.cs" />
     <Compile Include="Core\Items\PadItem.cs" />
     <Compile Include="Core\LevelReader.cs" />
     <Compile Include="MainWindow.xaml.cs">

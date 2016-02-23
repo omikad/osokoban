@@ -40,6 +40,17 @@ namespace Common.Helpers
 			for (var i = 0; i < arr.GetLength(0); i++)
 				for (var j = 0; j < arr.GetLength(1); j++)
 					yield return new PointInt(i, j);
+		}
+
+		public static IEnumerable<PointInt> IndicesWhere<T>(this T[,] arr, Func<T, bool> condition)
+		{
+			for (var i = 0; i < arr.GetLength(0); i++)
+				for (var j = 0; j < arr.GetLength(1); j++)
+				{
+					var item = arr[i, j];
+					if (condition(item))
+						yield return new PointInt(i, j);
+				}
 		} 
 	}
 }
