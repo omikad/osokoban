@@ -65,6 +65,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\AssetsManager.cs" />
+    <Compile Include="Core\Game.cs" />
+    <Compile Include="Core\GameHolder.cs" />
+    <Compile Include="Core\Items\BallItem.cs" />
+    <Compile Include="Core\Items\BrickItem.cs" />
+    <Compile Include="Core\Items\EmptyItem.cs" />
+    <Compile Include="Core\Items\IGameItem.cs" />
+    <Compile Include="Core\Items\PadItem.cs" />
+    <Compile Include="Core\LevelReader.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
