@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Common.UI;
+using GamesCommon.UI;
 
-namespace Common.GameCore
+namespace GamesCommon.GameCore
 {
 	public interface IBoard
 	{

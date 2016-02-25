@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Input;
-using Common.DataTypes;
+using GamesCommon.DataTypes;
 using OSokoban.Core;
 
 namespace OSokoban

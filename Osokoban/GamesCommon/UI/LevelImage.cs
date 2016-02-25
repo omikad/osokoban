@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using Common.GameCore;
-using Common.Helpers;
+using GamesCommon.Helpers;
+using GamesCommon.GameCore;
 
-namespace Common.UI
+namespace GamesCommon.UI
 {
 	public class LevelImage : FrameworkElement
 	{

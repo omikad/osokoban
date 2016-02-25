@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace Common.UI
+namespace GamesCommon.UI
 {
 	public interface IDrawable
 	{

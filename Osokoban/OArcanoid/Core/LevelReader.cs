@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using Common.DataTypes;
-using Common.Helpers;
+using GamesCommon.DataTypes;
+using GamesCommon.Helpers;
 using OArcanoid.Core.Items;
 
 namespace OArcanoid.Core

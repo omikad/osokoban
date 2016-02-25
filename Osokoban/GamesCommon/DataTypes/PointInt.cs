@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common.DataTypes
+namespace GamesCommon.DataTypes
 {
 	public struct PointInt : IEquatable<PointInt>
 	{

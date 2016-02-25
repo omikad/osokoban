@@ -7,8 +7,8 @@
     <ProjectGuid>{1FF600CE-934B-49F8-B277-2E7ED06FFE36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common</RootNamespace>
-    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>GamesCommon</RootNamespace>
+    <AssemblyName>GamesCommon</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

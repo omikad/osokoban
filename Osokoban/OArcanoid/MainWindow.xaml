@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ui="clr-namespace:Common.UI;assembly=Common"
+        xmlns:ui1="clr-namespace:GamesCommon.UI;assembly=GamesCommon"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
         Title="O.Arkanoid" Height="500" Width="500"
         KeyUp="OnKeyUp">
 
     <StackPanel>
-        <ui:LevelImage x:Name="LevelImage" />
+        <ui1:LevelImage x:Name="LevelImage" />
     </StackPanel>
 </Window>

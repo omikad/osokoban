@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Common.Helpers
+namespace GamesCommon.Helpers
 {
 	public static class RandomHelper
 	{

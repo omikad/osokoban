@@ -1,5 +1,5 @@
-﻿using Common.DataTypes;
-using Common.UI;
+﻿using GamesCommon.DataTypes;
+using GamesCommon.UI;
 
 namespace OSokoban.Core.Items
 {

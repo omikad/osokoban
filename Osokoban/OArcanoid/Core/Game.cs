@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using Common.DataTypes;
-using Common.GameCore;
-using Common.Helpers;
-using Common.UI;
+using GamesCommon.DataTypes;
+using GamesCommon.GameCore;
+using GamesCommon.Helpers;
+using GamesCommon.UI;
 using OArcanoid.Core.Items;
 
 namespace OArcanoid.Core

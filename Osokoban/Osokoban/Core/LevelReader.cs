@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using Common.Helpers;
+using GamesCommon.Helpers;
 using OSokoban.Core.Items;
 
 namespace OSokoban.Core

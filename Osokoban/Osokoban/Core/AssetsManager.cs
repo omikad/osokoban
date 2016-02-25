@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Common.Helpers;
+using GamesCommon.Helpers;
 
 namespace OSokoban.Core
 {

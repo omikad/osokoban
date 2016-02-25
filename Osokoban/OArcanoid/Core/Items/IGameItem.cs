@@ -1,4 +1,4 @@
-﻿using Common.UI;
+﻿using GamesCommon.UI;
 
 namespace OArcanoid.Core.Items
 {

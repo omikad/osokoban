@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common.DataTypes;
+using GamesCommon.DataTypes;
 
-namespace Common.Helpers
+namespace GamesCommon.Helpers
 {
 	public static class ArrayHelper
 	{

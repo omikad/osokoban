@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Media;
-using Common.DataTypes;
+using GamesCommon.DataTypes;
 
 namespace OSokoban.Core.Items
 {

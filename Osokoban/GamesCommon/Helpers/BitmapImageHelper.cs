@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Common.Helpers
+namespace GamesCommon.Helpers
 {
 	public static class BitmapImageHelper
 	{
