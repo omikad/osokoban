@@ -8,6 +8,7 @@ namespace OArcanoid.Core.Items
 	public class EmptyItem : IGameItem
 	{
 		public int ZIndex => 1;
+		public bool IsObstacle => false;
 
 		public PadPart Part { get; set; }
 

@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Media;
+using Common.DataTypes;
+using Common.Helpers;
 
 namespace OArcanoid.Core.Items
 {
@@ -17,15 +20,23 @@ namespace OArcanoid.Core.Items
 	{
 		private readonly AssetsManager assetsManager;
 
+		private static readonly BrickType[] order = {
+			BrickType.Wall,
+			BrickType.Apple,
+			BrickType.Diamond,
+		};
+
+		public int ZIndex => 10;
+		public bool IsObstacle => true;
+
+		public BrickType Type { get; private set; }
+
 		[ImportingConstructor]
 		public BrickItem(AssetsManager assetsManager)
 		{
 			this.assetsManager = assetsManager;
+			Type = order[0];
 		}
-
-		public int ZIndex => 10;
-
-		public BrickType Type { get; }
 
 		public void Draw(DrawingContext dc, Rect cellRect)
 		{
@@ -35,6 +46,16 @@ namespace OArcanoid.Core.Items
 				: assetsManager.Apple;
 
 			dc.DrawImage(imageSource, cellRect);
+		}
+
+		public void OnHit(Game game, PointInt brickPoint)
+		{
+			var orderIndex = Array.IndexOf(order, Type);
+
+			if (orderIndex == order.Length - 1)
+				game.Items.Get(brickPoint).Remove(this);
+			else
+				Type = order[orderIndex + 1];
 		}
 	}
 }

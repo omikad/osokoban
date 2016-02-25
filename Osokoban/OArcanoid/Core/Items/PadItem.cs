@@ -23,6 +23,7 @@ namespace OArcanoid.Core.Items
 		}
 
 		public int ZIndex => 10;
+		public bool IsObstacle => true;
 
 		public PadPart Part { get; set; }
 
