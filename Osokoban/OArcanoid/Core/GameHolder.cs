@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using GamesCommon.GameCore;
 
 namespace OArcanoid.Core
 {
 	[Export]
-	public class GameHolder
+	public class GameHolder : IGameHolder
 	{
 		private readonly CompositionContainer container;
 
@@ -16,6 +17,7 @@ namespace OArcanoid.Core
 		}
 
 		public Game CurrentGame { get; private set; }
+		public IBoard CurrentBoard => CurrentGame;
 
 		public void ReloadRandomLevel()
 		{

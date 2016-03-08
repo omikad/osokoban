@@ -115,11 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GamesCommon\GamesCommon.csproj">
-      <Project>{1FF600CE-934B-49F8-B277-2E7ED06FFE36}</Project>
-      <Name>Common</Name>
+      <Project>{1ff600ce-934b-49f8-b277-2e7ed06ffe36}</Project>
+      <Name>GamesCommon</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

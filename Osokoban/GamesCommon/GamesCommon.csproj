@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="GameCore\IBoard.cs" />
     <Compile Include="DataTypes\PointInt.cs" />
+    <Compile Include="GameCore\IGameHolder.cs" />
     <Compile Include="Helpers\ArrayHelper.cs" />
     <Compile Include="Helpers\BitmapImageHelper.cs" />
     <Compile Include="Helpers\EnumerableHelper.cs" />

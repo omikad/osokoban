@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
 using GamesCommon.Helpers;
 using GamesCommon.GameCore;
@@ -11,8 +12,8 @@ namespace GamesCommon.UI
 		public const int CellHeight = 16;
 		private const int borderThickness = 0;
 
-		private DrawingVisual board = new DrawingVisual();
-		private IBoard game;
+		private DrawingVisual boardControl = new DrawingVisual();
+		private IGameHolder gameHolder;
 
 		public LevelImage()
 		{
@@ -20,17 +21,20 @@ namespace GamesCommon.UI
 			Unloaded += RemoveVisualFromTree;
 		}
 
-		public void SetGame(IBoard gameValue)
+		public void SetGame(IGameHolder _gameHolder)
 		{
-			game = gameValue;
+			gameHolder = _gameHolder;
 		}
 
 		public void Redraw()
 		{
-			using (var dc = board.RenderOpen())
+			var board = gameHolder.CurrentBoard;
+
+			using (var dc = boardControl.RenderOpen())
 			{
-				for (var x = 0; x < game.CellsX; x++)
-					for (var y = 0; y < game.CellsY; y++)
+				for (var x = 0; x < board.CellsX; x++)
+				{
+					for (var y = 0; y < board.CellsY; y++)
 					{
 						var cellRect = new Rect(
 							x * CellWidth + borderThickness,
@@ -38,19 +42,24 @@ namespace GamesCommon.UI
 							CellWidth - borderThickness,
 							CellHeight - borderThickness);
 
-						game.DrawableContent(x, y).ElementWithMax(i => i.ZIndex).Draw(dc, cellRect);
+						var item = board.DrawableContent(x, y).ElementWithMax(i => i.ZIndex);
+
+						item.Draw(dc, cellRect);
 					}
+				}
 			}
 		}
 
 		private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
 		{
+			var game = gameHolder.CurrentBoard;
+
 			if (game == null) return;
 
 			Width = CellWidth * game.CellsX;
 			Height = CellHeight * game.CellsY;
 
-			board = new DrawingVisual();
+			boardControl = new DrawingVisual();
 
 			Redraw();
 
@@ -59,14 +68,14 @@ namespace GamesCommon.UI
 
 		private void AddVisualToTree()
 		{
-			AddVisualChild(board);
-			AddLogicalChild(board);
+			AddVisualChild(boardControl);
+			AddLogicalChild(boardControl);
 		}
 
 		private void RemoveVisualFromTree(object sender, RoutedEventArgs e)
 		{
-			RemoveLogicalChild(board);
-			RemoveVisualChild(board);
+			RemoveLogicalChild(boardControl);
+			RemoveVisualChild(boardControl);
 		}
 
 		protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
@@ -74,7 +83,7 @@ namespace GamesCommon.UI
 			return new PointHitTestResult(this, hitTestParameters.HitPoint);
 		}
 
-		protected override Visual GetVisualChild(int index) => board;
+		protected override Visual GetVisualChild(int index) => boardControl;
 
 		protected override int VisualChildrenCount => 1;
 	}

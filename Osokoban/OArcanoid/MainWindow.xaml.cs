@@ -14,6 +14,7 @@ namespace OArcanoid
 		{
 			this.gameHolder = gameHolder;
 			InitializeComponent();
+			LevelImage.SetGame(gameHolder);
 			NewLevel();
 		}
 
@@ -41,7 +42,6 @@ namespace OArcanoid
 		private void NewLevel()
 		{
 			gameHolder.ReloadRandomLevel();
-			LevelImage.SetGame(gameHolder.CurrentGame);
 		}
 	}
 }

@@ -15,6 +15,7 @@ namespace OSokoban
 		{
 			this.gameHolder = gameHolder;
 			InitializeComponent();
+			LevelImage.SetGame(gameHolder);
 			NewLevel();
 		}
 
@@ -38,14 +39,16 @@ namespace OSokoban
 					NewLevel();
 					break;
 			}
+		}
 
+		public void Redraw()
+		{
 			LevelImage.Redraw();
 		}
 
 		private void NewLevel()
 		{
 			gameHolder.ReloadRandomLevel();
-			LevelImage.SetGame(gameHolder.CurrentGame);
 		}
 	}
 }
